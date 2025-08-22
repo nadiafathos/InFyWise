@@ -3,15 +3,23 @@ projet de fin de formation
 
 
 InFyWise : API de gestion de la santé féminine
+
 InFyWise est une API conçue pour aider les femmes à mieux comprendre et gérer leur parcours de santé, en particulier en ce qui concerne les symptômes, maladies (comme l'endométriose ou le SOPK) et le suivi médical. Elle permet la création d'un journal de symptômes, la prise de rendez-vous médicaux, le partage de témoignages et la consultation d'informations validées par des professionnels de santé.
 
 🚀 Fonctionnalités Principales
+
 Gestion des utilisateurs : Créez et gérez des profils avec des rôles distincts (patient, médecin, administrateur).
+
 Journal de symptômes : Les patients peuvent enregistrer leurs symptômes quotidiens, leur intensité et leur type.
+
 Prise de rendez-vous : Les patients peuvent planifier des consultations avec des médecins spécialisés.
+
 Validation médicale : Les médecins peuvent consulter et valider les entrées de symptômes de leurs patients, et y ajouter des commentaires.
+
 Modération de contenu : Les administrateurs peuvent gérer et valider les témoignages et les fiches maladies.
+
 Fiches maladies : Accédez à une base de données d'informations sur les maladies féminines, modérées par des administrateurs.
+
 Témoignages : Les patients peuvent partager leurs expériences, soumises à modération avant publication.
 📝 User Stories pour les Rôles
 
@@ -20,46 +28,75 @@ Témoignages : Les patients peuvent partager leurs expériences, soumises à mod
 
 En tant que Patient
 Gestion de mon journal de symptômes
+
+
 User Story : En tant qu’utilisateur avec le rôle Patient, je veux pouvoir enregistrer, modifier et consulter mes symptômes pour suivre l'évolution de ma santé au fil du temps.
+
 Critères d'Acceptation :
 Je peux créer une nouvelle entrée de symptôme, associée à mon id_patient.
 Chaque entrée doit inclure une date, un type de symptôme, une intensité et une description.
 Je peux visualiser l'historique complet de mes symptômes.
 Prise de rendez-vous en ligne
+
+
 User Story : En tant qu’utilisateur avec le rôle Patient, je veux pouvoir trouver un médecin et prendre un rendez-vous en ligne pour simplifier la gestion de mes consultations.
+
 Critères d'Acceptation :
 Je peux rechercher des médecins selon leur spécialité.
 Je peux choisir un médecin et une date/heure pour créer un rendez-vous.
 Le rendez-vous doit être enregistré et lié à mon id_patient et à l'id_medecin.
 Partage de mon expérience
+
+
 User Story : En tant qu’utilisateur avec le rôle Patient, je veux pouvoir soumettre un témoignage pour partager mon expérience avec la communauté et apporter mon soutien.
+
+
 Critères d'Acceptation :
 Je peux rédiger et soumettre un témoignage.
 Le témoignage est associé à mon id_patient.
 Le témoignage n'est visible publiquement qu'après sa validation par un administrateur.
+
+
 En tant que Médecin
 Accès aux dossiers patients
+
 User Story : En tant qu’utilisateur avec le rôle Médecin, je veux pouvoir consulter les journaux de symptômes de mes patients pour obtenir un historique précis de leur état de santé.
+
+
 Critères d'Acceptation :
 Je peux accéder à la liste des patients avec qui j'ai un rendez-vous.
 En sélectionnant un patient, je peux voir toutes les entrées de symptômes qui lui sont associées via son id_patient.
+
+
 Validation et suivi des symptômes
+
+
 User Story : En tant qu’utilisateur avec le rôle Médecin, je veux pouvoir valider les entrées de symptômes d'un patient et y ajouter des commentaires pour enrichir le suivi médical.
+
 Critères d'Acceptation :
 Je peux sélectionner une entrée de symptôme spécifique.
 Je peux marquer cette entrée comme validée et ajouter un commentaire, qui est enregistré dans la table Validation et lié à mon id_medecin et à l'id_symptome.
+
+
 En tant qu'Administrateur
 Modération des témoignages
 User Story : En tant qu’utilisateur avec le rôle Administrateur, je veux pouvoir modérer les témoignages soumis pour garantir que le contenu partagé est pertinent et respectueux.
+
+
 Critères d'Acceptation :
 Je peux consulter une liste de tous les témoignages en attente de validation.
 Je peux valider ou rejeter un témoignage, ce qui met à jour le champ validé dans la table Temoignage.
 Gestion des fiches maladies
+
+
 User Story : En tant qu’utilisateur avec le rôle Administrateur, je veux pouvoir créer et mettre à jour des fiches maladies pour que les utilisateurs aient accès à des informations fiables.
 Critères d'Acceptation :
 Je peux ajouter une nouvelle FicheMaladie avec un titre, une description et une catégorie.
 Je peux modifier ou supprimer des fiches maladies existantes.
+
 📊 Diagramme UML – Schéma relationnel
+
+
 
 
     USER {
@@ -141,8 +178,8 @@ Je peux modifier ou supprimer des fiches maladies existantes.
     MEDECIN ||--o{ RENDEZVOUS : "assure"
     MEDECIN ||--o{ VALIDATION : "valide"
     SYMPTOMEENTRY ||--o{ VALIDATION : "est validé par"
-ADMIN ||--o{ FICHEMALADIE : "gère"
-ADMIN ||--o{ TEMOIGNAGE : "modère"
+    ADMIN ||--o{ FICHEMALADIE : "gère"
+    ADMIN ||--o{ TEMOIGNAGE : "modère"
 
 📘 Modèle Logique de Données (MLD)
 
@@ -185,12 +222,12 @@ id_medecin FK→MEDECIN.id_medecin, commentaire, date_validation)
 
 
 
-
-
-🛠️ Stack Technique
 📌 Fiche Technique – InFyWise
+
 🛠️ Technologies utilisées
+
 Backend (API)
+
 Framework : Flask (Python 3.11+)
 
 
@@ -235,7 +272,7 @@ Gestion de projet & Déploiement
 Versionning : Git
 
 
-Hébergement repo : GitHub (perso) + GitLab (travail collaboratif)
+Hébergement repo : GitHub (perso) + GitLab 
 
 
 CI/CD : GitLab CI/CD (optionnel)
