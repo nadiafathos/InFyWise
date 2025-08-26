@@ -1,359 +1,349 @@
-# InFyWise Project
-projet de fin de formation
 
+🎓 Final Project
+InFyWise: Women’s Health Management API
 
-InFyWise : API de gestion de la santé féminine
+InFyWise is an API designed to help women better understand and manage their health journey, particularly regarding symptoms, diseases (such as endometriosis or PCOS), and medical follow-up.
+It enables the creation of a symptom journal, scheduling of medical appointments, sharing of testimonies, and access to reliable health information validated by professionals.
 
-InFyWise est une API conçue pour aider les femmes à mieux comprendre et gérer leur parcours de santé, en particulier en ce qui concerne les symptômes, maladies (comme l'endométriose ou le SOPK) et le suivi médical. Elle permet la création d'un journal de symptômes, la prise de rendez-vous médicaux, le partage de témoignages et la consultation d'informations validées par des professionnels de santé.
+🚀 Key Features
 
-🚀 Fonctionnalités Principales
+User Management: Create and manage profiles with distinct roles (Patient, Doctor, Administrator).
 
-Gestion des utilisateurs : Créez et gérez des profils avec des rôles distincts (patient, médecin, administrateur).
+Symptom Journal: Patients can record their daily symptoms, intensity, and type.
 
-Journal de symptômes : Les patients peuvent enregistrer leurs symptômes quotidiens, leur intensité et leur type.
+Appointment Scheduling: Patients can book consultations with specialized doctors.
 
-Prise de rendez-vous : Les patients peuvent planifier des consultations avec des médecins spécialisés.
+Medical Validation: Doctors can review and validate symptom entries, adding comments.
 
-Validation médicale : Les médecins peuvent consulter et valider les entrées de symptômes de leurs patients, et y ajouter des commentaires.
+Content Moderation: Administrators can manage and validate testimonies and disease files.
 
-Modération de contenu : Les administrateurs peuvent gérer et valider les témoignages et les fiches maladies.
+Disease Files: Access a database of information on women’s health conditions, curated by administrators.
 
-Fiches maladies : Accédez à une base de données d'informations sur les maladies féminines, modérées par des administrateurs.
+Testimonies: Patients can share their experiences, subject to moderation before publication.
 
-Témoignages : Les patients peuvent partager leurs expériences, soumises à modération avant publication.
-📝 User Stories pour les Rôles
+📝 User Stories per Role
+👩‍🦰 As a Patient
+Manage my Symptom Journal
 
-👩‍⚕️ User Stories
+User Story: As a Patient, I want to record, edit, and view my symptoms to track my health evolution over time.
 
+Acceptance Criteria:
 
-En tant que Patient
-Gestion de mon journal de symptômes
+I can create a new symptom entry linked to my id_patient.
 
+Each entry must include a date, symptom type, intensity, and description.
 
-User Story : En tant qu’utilisateur avec le rôle Patient, je veux pouvoir enregistrer, modifier et consulter mes symptômes pour suivre l'évolution de ma santé au fil du temps.
+I can view the complete history of my symptoms.
 
-Critères d'Acceptation :
-Je peux créer une nouvelle entrée de symptôme, associée à mon id_patient.
-Chaque entrée doit inclure une date, un type de symptôme, une intensité et une description.
-Je peux visualiser l'historique complet de mes symptômes.
-Prise de rendez-vous en ligne
+Book Online Appointments
 
+User Story: As a Patient, I want to find a doctor and book an appointment online to simplify managing my consultations.
 
-User Story : En tant qu’utilisateur avec le rôle Patient, je veux pouvoir trouver un médecin et prendre un rendez-vous en ligne pour simplifier la gestion de mes consultations.
+Acceptance Criteria:
 
-Critères d'Acceptation :
-Je peux rechercher des médecins selon leur spécialité.
-Je peux choisir un médecin et une date/heure pour créer un rendez-vous.
-Le rendez-vous doit être enregistré et lié à mon id_patient et à l'id_medecin.
-Partage de mon expérience
+I can search for doctors by specialty.
 
+I can choose a doctor and a date/time to schedule an appointment.
 
-User Story : En tant qu’utilisateur avec le rôle Patient, je veux pouvoir soumettre un témoignage pour partager mon expérience avec la communauté et apporter mon soutien.
+The appointment must be recorded and linked to my id_patient and the doctor’s id_doctor.
 
+Share my Experience
 
-Critères d'Acceptation :
-Je peux rédiger et soumettre un témoignage.
-Le témoignage est associé à mon id_patient.
-Le témoignage n'est visible publiquement qu'après sa validation par un administrateur.
+User Story: As a Patient, I want to submit a testimony to share my experience with the community and provide support.
 
+Acceptance Criteria:
 
-En tant que Médecin
-Accès aux dossiers patients
+I can write and submit a testimony.
 
-User Story : En tant qu’utilisateur avec le rôle Médecin, je veux pouvoir consulter les journaux de symptômes de mes patients pour obtenir un historique précis de leur état de santé.
+The testimony is linked to my id_patient.
 
+The testimony is only visible publicly after validation by an Administrator.
 
-Critères d'Acceptation :
-Je peux accéder à la liste des patients avec qui j'ai un rendez-vous.
-En sélectionnant un patient, je peux voir toutes les entrées de symptômes qui lui sont associées via son id_patient.
+👨‍⚕️ As a Doctor
+Access Patient Records
 
+User Story: As a Doctor, I want to view my patients’ symptom journals to have a precise history of their health status.
 
-Validation et suivi des symptômes
+Acceptance Criteria:
 
+I can access the list of patients with whom I have an appointment.
 
-User Story : En tant qu’utilisateur avec le rôle Médecin, je veux pouvoir valider les entrées de symptômes d'un patient et y ajouter des commentaires pour enrichir le suivi médical.
+By selecting a patient, I can view all symptom entries linked to their id_patient.
 
-Critères d'Acceptation :
-Je peux sélectionner une entrée de symptôme spécifique.
-Je peux marquer cette entrée comme validée et ajouter un commentaire, qui est enregistré dans la table Validation et lié à mon id_medecin et à l'id_symptome.
+Validate and Follow Up on Symptoms
 
+User Story: As a Doctor, I want to validate patient symptom entries and add comments to enrich medical follow-up.
 
-En tant qu'Administrateur
-Modération des témoignages
-User Story : En tant qu’utilisateur avec le rôle Administrateur, je veux pouvoir modérer les témoignages soumis pour garantir que le contenu partagé est pertinent et respectueux.
+Acceptance Criteria:
 
+I can select a specific symptom entry.
 
-Critères d'Acceptation :
-Je peux consulter une liste de tous les témoignages en attente de validation.
-Je peux valider ou rejeter un témoignage, ce qui met à jour le champ validé dans la table Temoignage.
-Gestion des fiches maladies
+I can mark this entry as validated and add a comment.
 
+The validation is saved in the Validation table, linked to my id_doctor and the id_symptom.
 
-User Story : En tant qu’utilisateur avec le rôle Administrateur, je veux pouvoir créer et mettre à jour des fiches maladies pour que les utilisateurs aient accès à des informations fiables.
-Critères d'Acceptation :
-Je peux ajouter une nouvelle FicheMaladie avec un titre, une description et une catégorie.
-Je peux modifier ou supprimer des fiches maladies existantes.
+🛡️ As an Administrator
+Testimony Moderation
 
-📊 Diagramme UML – Schéma relationnel
+User Story: As an Administrator, I want to moderate submitted testimonies to ensure that shared content is relevant and respectful.
 
+Acceptance Criteria:
 
+I can view a list of all testimonies pending validation.
 
+I can approve or reject a testimony, which updates the validated field in the Testimony table.
 
-    USER {
+Manage Disease Files
+
+User Story: As an Administrator, I want to create and update disease files so that users have access to reliable health information.
+
+Acceptance Criteria:
+
+I can add a new DiseaseFile with a title, description, and category.
+
+I can update or delete existing disease files.
+
+## 📊 UML Diagram
+
+```mermaid
+classDiagram
+    class USER {
         int id_user PK
-        string nom
-        string prenom
+        string last_name
+        string first_name
         string email
-        string mot_de_passe
+        string password
         enum role
-        date date_inscription
+        date registration_date
     }
 
-    PATIENT {
+    class PATIENT {
         int id_patient PK, FK -> USER.id_user
-        date date_naissance
+        date birth_date
     }
 
-    MEDECIN {
-        int id_medecin PK, FK -> USER.id_user
-        string specialite
-        string hopital
+    class DOCTOR {
+        int id_doctor PK, FK -> USER.id_user
+        string specialty
+        string hospital
     }
 
-    ADMIN {
+    class ADMIN {
         int id_admin PK, FK -> USER.id_user
     }
 
-    SYMPTOMEENTRY {
-        int id_symptome PK
+    class SYMPTOM_ENTRY {
+        int id_symptom PK
         int id_patient FK -> PATIENT.id_patient
-        date date_enregistrement
-        string type_symptome
-        int intensite
+        date record_date
+        string symptom_type
+        int intensity
         text description
     }
 
-    RENDEZVOUS {
-        int id_rdv PK
+    class APPOINTMENT {
+        int id_appointment PK
         int id_patient FK -> PATIENT.id_patient
-        int id_medecin FK -> MEDECIN.id_medecin
-        date date_rdv
-        string type_rdv
-        string statut
+        int id_doctor FK -> DOCTOR.id_doctor
+        date appointment_date
+        string appointment_type
+        string status
     }
 
-    FICHEMALADIE {
-        int id_maladie PK
-        string titre
+    class DISEASE_FILE {
+        int id_disease PK
+        string title
         text description
-        string categorie
-        date date_maj
+        string category
+        date last_update
     }
 
-    TEMOIGNAGE {
-        int id_temoignage PK
+    class TESTIMONY {
+        int id_testimony PK
         int id_patient FK -> PATIENT.id_patient
-        text contenu
-        date date_post
-        bool valide
+        text content
+        date post_date
+        bool validated
     }
 
-    VALIDATION {
+    class VALIDATION {
         int id_validation PK
-        int id_symptome FK -> SYMPTOMEENTRY.id_symptome
-        int id_medecin FK -> MEDECIN.id_medecin
-        text commentaire
-        date date_validation
+        int id_symptom FK -> SYMPTOM_ENTRY.id_symptom
+        int id_doctor FK -> DOCTOR.id_doctor
+        text comment
+        date validation_date
     }
 
     %% Relations
+    USER <|-- PATIENT : "is a"
+    USER <|-- DOCTOR : "is a"
+    USER <|-- ADMIN : "is a"
 
-    USER ||--|| PATIENT : "est un"
-    USER ||--|| MEDECIN : "est un"
-    USER ||--|| ADMIN : "est un"
+    PATIENT "1" --> "0..*" SYMPTOM_ENTRY : "records"
+    PATIENT "1" --> "0..*" APPOINTMENT : "books"
+    PATIENT "1" --> "0..*" TESTIMONY : "writes"
 
-    PATIENT ||--o{ SYMPTOMEENTRY : "enregistre"
-    PATIENT ||--o{ RENDEZVOUS : "prend"
-    PATIENT ||--o{ TEMOIGNAGE : "écrit"
-    MEDECIN ||--o{ RENDEZVOUS : "assure"
-    MEDECIN ||--o{ VALIDATION : "valide"
-    SYMPTOMEENTRY ||--o{ VALIDATION : "est validé par"
-    ADMIN ||--o{ FICHEMALADIE : "gère"
-    ADMIN ||--o{ TEMOIGNAGE : "modère"
+    DOCTOR "1" --> "0..*" APPOINTMENT : "handles"
+    DOCTOR "1" --> "0..*" VALIDATION : "validates"
 
-📘 Modèle Logique de Données (MLD)
+    SYMPTOM_ENTRY "1" --> "0..*" VALIDATION : "validated by"
 
-USER(id_user PK, nom, prénom, email, mot_de_passe, rôle, date_inscription)
+    ADMIN "1" --> "0..*" DISEASE_FILE : "manages"
+    ADMIN "1" --> "0..*" TESTIMONY : "moderates"
 
-PATIENT(id_patient PK, id_user FK→USER.id_user, date_naissance)
 
-MÉDECIN(id_medecin PK, id_user FK→USER.id_user, spécialité, hôpital)
+
+
+📘 Logical Data Model (LDM)
+
+USER(id_user PK, last_name, first_name, email, password, role, registration_date)
+
+PATIENT(id_patient PK, id_user FK→USER.id_user, birth_date)
+
+DOCTOR(id_doctor PK, id_user FK→USER.id_user, specialty, hospital)
 
 ADMIN(id_admin PK, id_user FK→USER.id_user)
 
-SYMPTOMEENTRY(id_symptome PK, id_patient FK→PATIENT.id_patient,
-date_enregistrement, type_symptome, intensite, description)
+SYMPTOM_ENTRY(id_symptom PK, id_patient FK→PATIENT.id_patient,
+record_date, symptom_type, intensity, description)
 
-RENDEZVOUS(id_rdv PK, id_patient FK→PATIENT.id_patient,
-id_medecin FK→MEDECIN.id_medecin, date_rdv, type_rdv, statut)
+APPOINTMENT(id_appointment PK, id_patient FK→PATIENT.id_patient,
+id_doctor FK→DOCTOR.id_doctor, appointment_date, appointment_type, status)
 
-FICHEMALADIE(id_maladie PK, titre, description, catégorie, date_maj)
+DISEASE_FILE(id_disease PK, title, description, category, last_update)
 
-TEMOIGNAGE(id_temoignage PK, id_patient FK→PATIENT.id_patient,
-contenu, date_post, valide)
+TESTIMONY(id_testimony PK, id_patient FK→PATIENT.id_patient,
+content, post_date, validated)
 
-VALIDATION(id_validation PK, id_symptome FK→SYMPTOMEENTRY.id_symptome,
-id_medecin FK→MEDECIN.id_medecin, commentaire, date_validation)
-
-
+VALIDATION(id_validation PK, id_symptom FK→SYMPTOM_ENTRY.id_symptom,
+id_doctor FK→DOCTOR.id_doctor, comment, validation_date)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-📌 Fiche Technique – InFyWise
-
-🛠️ Technologies utilisées
-
+📌 Technical Sheet – InFyWise
+🛠️ Technologies Used
 Backend (API)
 
-Framework : Flask (Python 3.11+)
+Framework: Flask (Python 3.11+)
 
+Database: PostgreSQL
 
-Base de données : PostgreSQL
+ORM: SQLAlchemy + Marshmallow (validation/serialization)
 
+Authentication: JWT (JSON Web Token)
 
-ORM : SQLAlchemy + Marshmallow (validation/sérialisation)
+Testing: Postman / Thunder Client
 
+Architecture: RESTful API (simplified MVC)
 
-Authentification : JWT (JSON Web Token)
-
-
-Tests : Postman / Thunder Client
-
-
-Architecture : RESTful API (MVC simplifié)
-
-
-Conteneurisation : Docker & Docker Compose
-
+Containerization: Docker & Docker Compose
 
 Frontend (WebApp)
-Framework : Angular 20+
 
+Framework: Angular 20+
 
-IDE : WebStorm (JetBrains)
+IDE: WebStorm (JetBrains)
 
+UI/UX: TailwindCSS + Angular Material
 
-UI/UX : TaiinlwdCSS + Angular Material
+Routing: Angular Router
 
+State Management: RxJS
 
-Routing : Angular Router
+Build Tool: Webpack 5 (via Angular CLI)
 
+Project Management & Deployment
 
-Gestion d’état : RxJS
+Version Control: Git
 
+Repository Hosting: GitHub (personal) + GitLab
 
-Build : Webpack 5 (via Angular CLI)
+CI/CD: GitLab CI/CD (optional)
 
+Deployment: Docker (backend + frontend in separate containers)
 
-Gestion de projet & Déploiement
-Versionning : Git
+Documentation: Swagger/OpenAPI + README
 
-
-Hébergement repo : GitHub (perso) + GitLab 
-
-
-CI/CD : GitLab CI/CD (optionnel)
-
-
-Déploiement : Docker (backend + frontend dans containers séparés)
-
-
-Documentation : Swagger/OpenAPI + README
-
-
-
-📂 Architecture du projet
+📂 Project Architecture
 projet-sante/
-│── backend/                  # API Flask
-│   ├── app/                  # Code source Flask
-│   │   ├── routes/           # Routes REST
-│   │   ├── models/           # Modèles SQLAlchemy
-│   │   ├── schemas/          # Schemas Marshmallow
-│   │   ├── services/         # Logique métier
+│── backend/                  # Flask API
+│   ├── app/                  # Flask source code
+│   │   ├── routes/           # REST routes
+│   │   ├── models/           # SQLAlchemy models
+│   │   ├── schemas/          # Marshmallow schemas
+│   │   ├── services/         # Business logic
 │   │   └── __init__.py
-│   ├── tests/                # Tests unitaires API
-│   ├── config.py             # Config DB, JWT...
-│   ├── requirements.txt      # Dépendances Python
-│   └── wsgi.py               # Entrée Flask
+│   ├── tests/                # API unit tests
+│   ├── config.py             # DB, JWT configuration...
+│   ├── requirements.txt      # Python dependencies
+│   └── wsgi.py               # Flask entry point
 │
-│── frontend/                 # Application Angular
+│── frontend/                 # Angular application
 │   ├── src/
 │   │   ├── app/
-│   │   │   ├── components/   # Composants UI
-│   │   │   ├── pages/        # Pages (rendez-vous, symptômes…)
-│   │   │   ├── services/     # Services API
+│   │   │   ├── components/   # UI components
+│   │   │   ├── pages/        # Pages (appointments, symptoms…)
+│   │   │   ├── services/     # API services
 │   │   │   └── guards/       # Auth Guards
 │   ├── angular.json
 │   ├── package.json
 │   └── tsconfig.json
 │
-│── docker-compose.yml        # Orchestration containers
-│── Dockerfile.backend        # Image Flask
-│── Dockerfile.frontend       # Image Angular
+│── docker-compose.yml        # Containers orchestration
+│── Dockerfile.backend        # Flask image
+│── Dockerfile.frontend       # Angular image
 │── README.md                 # Documentation
 
-🔑 Fonctionnalités principales
-Utilisateurs
-Création et gestion de comptes (Patient, Médecin, Admin)
+🔑 Main Features
+Users
 
+Account creation & management (Patient, Doctor, Admin)
 
-Authentification sécurisée par JWT
+Secure JWT authentication
 
-
-Gestion des rôles et permissions
-
+Role & permission management
 
 Patients
-Enregistrement des symptômes
+
+Symptom tracking
+
+Booking appointments with doctors
+
+Writing & submitting testimonials
+
+Doctors
+
+Reviewing and validating symptoms
+
+Patient monitoring
+
+Managing appointments
+
+Administrators
+
+Managing disease information sheets
+
+Moderating testimonials
+
+Supervising users
+
+📂 Backend Structure
+backend/
+│── app.py              # Flask app entry point
+│── requirements.txt    # Python dependencies
+│
+├── app/                # Main API code
+│   ├── __init__.py     # Initialize Flask app
+│   ├── routes/         # Route files
+│   │   ├── __init__.py
+│   │   └── user_routes.py
+│   ├── models/         # Model files (DB later)
+│   │   ├── __init__.py
+│   │   └── user_model.py
+│   └── services/       # Business logic (optional for later)
+│       └── __init__.py
 
 
-Prise de rendez-vous avec un médecin
 
-
-Rédaction de témoignages
-
-
-Médecins
-Consultation et validation des symptômes
-
-
-Suivi des patients
-
-
-Gestion des rendez-vous
-
-
-Admin
-Gestion des fiches maladies
-
-
-Modération des témoignages
-
-
-Supervision des utilisateurs
 
 
 

@@ -1,0 +1,22 @@
+# WebStorm
+.idea/
+*.iml
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.env
+
+# Angular / Node.js
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+
+# Docker
+*.log
+*.tmp
